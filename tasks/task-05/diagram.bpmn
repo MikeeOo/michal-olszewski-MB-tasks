@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant P as Pracownik
+    participant K as Kierownik/Zastępca
+    participant D as Dyrektor/Zastępca
+
+    Note over P: Start procesu
+    P->>K: Utworzenie pisma
+    alt Kierownik dostępny
+        K->>K: Akceptacja przez Kierownika
+    else Kierownik niedostępny
+        K->>K: Akceptacja przez Zastępcę
+    end
+    K->>D: Przekazanie do zatwierdzenia
+    alt Dyrektor dostępny
+        D->>D: Zatwierdzenie przez Dyrektora
+    else Dyrektor niedostępny
+        D->>D: Zatwierdzenie przez Zastępcę
+    end
+    D->>P: Dokument zatwierdzony
+    Note over P: Koniec procesu

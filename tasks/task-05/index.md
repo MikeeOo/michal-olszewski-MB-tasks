@@ -1,0 +1,6 @@
+- Aktorzy w procesie:
+    - Pracownik (twórca pisma)  
+    - Kierownik (defaultowa osoba akceptująca)
+    - Zastępca Kierownika
+    - Dyrektor (defaultowa osoba zatwierdzająca)
+    - Zastępca Dyrektora
