@@ -88,12 +88,10 @@ class Calendar
     {
         $html = '<tbody><tr>';
 
-        // Empty cells before first day
         for ($i = 1; $i < $firstDayNumber; $i++) {
             $html .= '<td class="p-4">&nbsp;</td>';
         }
 
-        // Calendar days
         $dayOfWeek = $firstDayNumber - 1;
         for ($day = 1; $day <= $monthLength; $day++) {
             if ($dayOfWeek === 7) {
@@ -106,7 +104,6 @@ class Calendar
             $dayOfWeek++;
         }
 
-        // Empty cells after last day
         while ($dayOfWeek < 7 && $dayOfWeek > 0) {
             $html .= '<td class="p-4">&nbsp;</td>';
             $dayOfWeek++;
@@ -123,7 +120,7 @@ class Calendar
 
         return sprintf(
             '<div>%s<table class="w-full border-collapse">%s%s</table></div>',
-            $this->generateHeader($monthData['monthName'], $year),
+            $this->generateHeader(strval($monthData['monthName']), $year),
             $this->generateTableHeader(),
             $this->generateCalendarBody($monthData['monthLength'], $monthData['firstDayNumber']),
         );
@@ -134,7 +131,7 @@ $calendar = new Calendar();
 ?>
 
     <main class="text-2xl h-screen flex items-center justify-center">
-        <?php echo $calendar->render('październik', 2024); ?>
+        <?php echo $calendar->render('grudzień', 2024); ?>
     </main>
 
 <?php require_once '../../partials/footer.php'; ?>
